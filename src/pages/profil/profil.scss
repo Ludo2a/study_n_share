@@ -1,0 +1,14 @@
+page-profil {
+    .avatar img {
+        margin: auto;
+        width:100% !important;  
+        height : 100% !important;  
+        max-width: 200px !important;  //any size
+        max-height: 200px !important; //any size 
+     }
+
+    .tags button{
+        margin:0 auto;
+        display:inline-block;
+    }
+}
