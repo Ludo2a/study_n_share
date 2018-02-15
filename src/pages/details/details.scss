@@ -1,3 +1,21 @@
 page-details {
-
+    .photo{
+        background-color: gray;
+    }
+    .photo img{
+        height : 100% ; 
+        width: auto;
+        max-height: 200px ;
+        margin: auto;
+        display: block;
+    }
+    .like{
+        text-align: center
+    }
+    .like ion-icon {
+        font-size: 60px; //Preferred size here
+        color: rgb(0, 140, 255);
+    }
+    
+    
 }
