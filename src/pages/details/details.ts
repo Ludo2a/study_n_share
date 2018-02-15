@@ -9,7 +9,6 @@ declare var google;
  * Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-details',
   templateUrl: 'details.html',

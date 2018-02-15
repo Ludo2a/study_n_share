@@ -7,6 +7,43 @@ page-profil {
         max-height: 200px !important; //any size 
      }
 
+     .bg {
+        z-index: -1;
+        background-image: url('../assets/imgs/user.png');
+        background-repeat: no-repeat;
+        background-position: center;
+        margin: auto;
+        width:100% !important;  
+        height : 100% !important; 
+        position: fixed;
+        left: 0;
+        right: 0;
+
+        -webkit-filter: blur(10px);
+        -moz-filter: blur(10px);
+        -o-filter: blur(10px);
+        -ms-filter: blur(10px);
+        filter: blur(10px);
+     }
+
+     .fg {
+        z-index: 2;
+        border-color: rgba(0, 0, 0, 0);
+	    background-color: rgba(0, 0, 0, 0);
+        color: white; 
+     }
+
+     .mg {
+        z-index: 1;
+        position: fixed;
+        left: 85%;
+       
+        
+        border-color: rgba(0, 0, 0, 0);
+	    background-color: rgba(0, 0, 0, 0);
+        color: white; 
+     }
+
     .tags button{
         margin:0 auto;
         display:inline-block;

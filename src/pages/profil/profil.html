@@ -13,22 +13,98 @@
 </ion-header>
 
 
-<ion-content padding >
-  <ion-item> 
+<ion-content>
+  <ion-item>
+  <ion-item class="bg"></ion-item>
+  
     <ion-avatar ion-row class="avatar">
-        <img src="assets/imgs/user.png">
+      <img src="assets/imgs/user.png">
     </ion-avatar>
-    <div text-center>
-      <h1>Utilisateur</h1>
-      <p>ISEN - Toulon</p>
-    </div>
+    <ion-row class="fg">
+      <ion-col text-center>
+        <h1>{{user.user_firstname}} {{user.user_lastname}}</h1>
+        <h2>{{user.user_field}} - {{user.user_city}}</h2>
+      </ion-col>
+      <ion-col class="mg">
+        <button outline item-right>
+          <ion-icon name="brush"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+      
   </ion-item>
   <div text-center>
-    <button ion-button round outline>Yo</button>
-    <button ion-button round outline>Salut</button>
-    <button ion-button round outline>Bonjour</button>
-    <button ion-button round outline>Coucou</button>
-    <button ion-button round outline>Hola</button>
-    <button ion-button round outline>Les carottes sont cuites</button>
+    <button *ngFor="let hashtag of user.user_hashtag" ion-button round outline>{{hashtag}}</button>
   </div>
+
+ 
+<form name="form" class="" (ngSubmit)="valider(form)" *ngIf="showInputBar1" >
+    <ion-item>
+      <ion-label floating>Information à ajouter</ion-label>
+      <ion-input name="info1" type="text" [(ngModel)]="form.information"></ion-input>
+    </ion-item>
+    <div text-center>
+        <button ion-button color="primary" type="submit">Valider</button>
+    </div>
+  </form>
+  <ion-item text-center>
+    <p>{{user.user_lol}}</p>
+    <button (click)="clickedBrushIcon1($event)" item-right>
+      <ion-icon name="brush"></ion-icon>
+    </button>
+  </ion-item>
+  
+
+  <form name="form" class="" (ngSubmit)="valider(form)" *ngIf="showInputBar2" >
+      <ion-item>
+        <ion-label floating>Information à ajouter</ion-label>
+        <ion-input name="info2" type="text" [(ngModel)]="form.information"></ion-input>
+      </ion-item>
+      <div text-center>
+          <button ion-button color="primary" type="submit">Valider</button>
+      </div>
+    </form>
+  <ion-item  text-center>
+    <p>{{user.user_purpose}}</p>
+    <button (click)="clickedBrushIcon2($event)" item-right>
+      <ion-icon name="brush"></ion-icon>
+    </button>
+  </ion-item>
+  
+
+  <form name="form" class="" (ngSubmit)="valider(form)" *ngIf="showInputBar3" >
+      <ion-item>
+        <ion-label floating>Information à ajouter</ion-label>
+        <ion-input name="info3" type="text" [(ngModel)]="form.information"></ion-input>
+      </ion-item>
+      <div text-center>
+          <button ion-button color="primary" type="submit">Valider</button>
+      </div>
+    </form>
+  <ion-item text-center>
+    <p>{{user.user_contact}}</p>
+    <button (click)="clickedBrushIcon3($event)" item-right>
+      <ion-icon name="brush"></ion-icon>
+    </button>
+  </ion-item>
+  
+
+  <form name="form" class="" (ngSubmit)="valider(form)"  *ngIf="showInputBar4" >
+    <ion-item>
+      <ion-label floating>Information à ajouter</ion-label>
+      <ion-input name="info4" type="text" [(ngModel)]="form.information"></ion-input>
+    </ion-item>
+    <div text-center>
+        <button ion-button color="primary" type="submit">Valider</button>
+    </div>
+  </form>
+  <ion-item text-center>
+    <p>{{user.user_institution}}</p>
+    <button (click)="clickedBrushIcon4($event)" item-right>
+      <ion-icon name="brush"></ion-icon>
+    </button>
+  </ion-item>
+  
+  
+
 </ion-content>
