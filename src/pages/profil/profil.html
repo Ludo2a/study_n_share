@@ -13,15 +13,25 @@
 </ion-header>
 
 
-<ion-content padding >
-  <ion-item> 
+<ion-content>
+  <ion-item>
+  <ion-item class="bg"></ion-item>
+  
     <ion-avatar ion-row class="avatar">
-        <img src="assets/imgs/user.png">
+      <img src="assets/imgs/user.png">
     </ion-avatar>
-    <div text-center>
-      <h1>Utilisateur</h1>
-      <p>ISEN - Toulon</p>
-    </div>
+    <ion-row class="fg">
+      <ion-col text-center>
+        <h1>Utilisateur</h1>
+        <h2>ISEN - Toulon</h2>
+      </ion-col>
+      <ion-col class="mg">
+        <button outline item-right>
+          <ion-icon name="brush"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+      
   </ion-item>
   <div text-center>
     <button ion-button round outline>Yo</button>
@@ -31,4 +41,28 @@
     <button ion-button round outline>Hola</button>
     <button ion-button round outline>Les carottes sont cuites</button>
   </div>
+  <ion-item text-center>
+    <p>Découvrez comment  rencontrer des <br> personnes dans votre #communauté</p>
+    <button item-right>
+      <ion-icon name="brush"></ion-icon>
+    </button>
+  </ion-item>
+  <ion-item text-center>
+    <p>Je suis là pour ...</p>
+    <button item-right>
+      <ion-icon name="brush"></ion-icon>
+    </button>
+  </ion-item>
+  <ion-item text-center>
+    <p>Pour me contacter ...</p>
+    <button item-right>
+      <ion-icon name="brush"></ion-icon>
+    </button>
+  </ion-item>
+  <ion-item text-center>
+    <p>Mon établissement ...</p>
+    <button item-right>
+      <ion-icon name="brush"></ion-icon>
+    </button>
+  </ion-item>
 </ion-content>
