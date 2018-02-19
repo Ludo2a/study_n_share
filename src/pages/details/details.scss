@@ -10,12 +10,17 @@ page-details {
         display: block;
     }
     .like{
-        text-align: center
+        text-align: center;
+        vertical-align: middle;
     }
     .like ion-icon {
-        font-size: 60px; //Preferred size here
+        font-size: 40px;
         color: rgb(0, 140, 255);
     }
+    #map {
+        width: 100%;
+        height: 200px;
+      }
     
     
 }

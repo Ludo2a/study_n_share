@@ -7,14 +7,14 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>details</ion-title>
+    <ion-title>Détails</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-  <div class="photo">
+<ion-content> 
+    <div class="photo">
     <img src='https://www.mac4ever.com/images-articles/2844_la-calculette-irl-de-l-iphone-va-etre-reeditee.jpg'>
   </div>
   <ion-item>
@@ -34,17 +34,22 @@
           <h6><b>50€</b><br>
           Calculette<br>
           Ma foi de toute beauté</h6>
-          <h6 href="" class="hashtag">#Hashtag</h6>
+          <a href="" class="hashtag">#Hashtag</a>
         </ion-col>
         <ion-col class="like">
+          <br><br>
             <ion-icon name="thumbs-up"></ion-icon>
         </ion-col>
       </ion-row>
   </ion-grid>
-  <button ion-button block outline>Contacter le vendeur</button>
-  <button ion-button block>ACHETER</button>
+  <div padding>
+    <button ion-button block outline>Contacter le vendeur</button>
+    <button ion-button block>ACHETER</button>
+  </div>
+  
   <h5>LOCALISATION</h5>
-  <div #map id="map"></div> 
+  <div #map id="map"></div>
+  
 
 
 
