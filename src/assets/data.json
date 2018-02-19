@@ -2,7 +2,7 @@
 	"user":[
         {
             "id_user": 0,
-            "user_img": "/imgs/user.png",
+            "user_img": "assets/imgs/user.png",
             "user_firstname": "Prénom",
             "user_lastname": "Nom",
             "user_field": "Mon domaine",

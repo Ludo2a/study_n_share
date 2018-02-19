@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
+import { FirebaseProvider } from '../../providers/firebase/firebase';
 import { Data } from '../../providers/data/data';
 
 
@@ -17,6 +18,7 @@ import { Data } from '../../providers/data/data';
 })
 export class ProfilPage {
 
+
   user;
   form;
   public showInputBar1 = false;
@@ -25,7 +27,7 @@ export class ProfilPage {
   public showInputBar4 = false;
 
 
-  constructor(public data: Data, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public fireBaseProvider: FirebaseProvider, public data: Data, public navCtrl: NavController, public navParams: NavParams) {
     this.user = {};
     data.getMainUser().subscribe(data => 
       {
@@ -36,6 +38,9 @@ export class ProfilPage {
       information: "",
       champs: ""
     };
+    this.fireBaseProvider.getEventItems().subscribe( data => {
+      this.user = data;
+    })
   }
 
   ionViewDidLoad() {

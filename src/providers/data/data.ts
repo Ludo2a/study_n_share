@@ -5,7 +5,6 @@ import { of } from 'rxjs/Observable/of';
 import { tap } from 'rxjs/operators';
 import { Storage } from '@ionic/storage';
 import { HttpClient } from '@angular/common/http';
-import { HttpModule } from '@angular/http';
 
 import 'rxjs/add/observable/fromPromise';
 import 'rxjs/add/operator/mergeMap';
@@ -32,7 +31,7 @@ export class Data {
     if(this.user.length == 0) {
       return Observable.fromPromise(this.storage.get('mainUser')).mergeMap( (val: any) => {
         if(val == null || val.user == null) {
-          return this.http.get("../../assets/data.json").pipe(
+          return this.http.get("assets/data.json").pipe(
             tap( (res: any) => {
               this.user = res.user;
             })

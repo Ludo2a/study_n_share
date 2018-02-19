@@ -15,10 +15,9 @@
 
 <ion-content>
   <ion-item>
-  <ion-item class="bg"></ion-item>
-  
+    <ion-item class="bg" style="background-image: url('http://static3.uk.businessinsider.com/image/589a1765dd0895cb6e8b49f8-1200/.jpg')"></ion-item>
     <ion-avatar ion-row class="avatar">
-      <img src="assets/imgs/user.png">
+      <img src='http://static3.uk.businessinsider.com/image/589a1765dd0895cb6e8b49f8-1200/.jpg'>
     </ion-avatar>
     <ion-row class="fg">
       <ion-col text-center>
@@ -38,7 +37,7 @@
   </div>
 
  
-<form name="form" class="" (ngSubmit)="valider(form)" *ngIf="showInputBar1" >
+<form name="form1" (ngSubmit)="valider(form)" *ngIf="showInputBar1" >
     <ion-item>
       <ion-label floating>Information à ajouter</ion-label>
       <ion-input name="info1" type="text" [(ngModel)]="form.information"></ion-input>
@@ -55,7 +54,7 @@
   </ion-item>
   
 
-  <form name="form" class="" (ngSubmit)="valider(form)" *ngIf="showInputBar2" >
+  <form name="form2" (ngSubmit)="valider(form)" *ngIf="showInputBar2" >
       <ion-item>
         <ion-label floating>Information à ajouter</ion-label>
         <ion-input name="info2" type="text" [(ngModel)]="form.information"></ion-input>
@@ -72,7 +71,7 @@
   </ion-item>
   
 
-  <form name="form" class="" (ngSubmit)="valider(form)" *ngIf="showInputBar3" >
+  <form name="form3" (ngSubmit)="valider(form)" *ngIf="showInputBar3" >
       <ion-item>
         <ion-label floating>Information à ajouter</ion-label>
         <ion-input name="info3" type="text" [(ngModel)]="form.information"></ion-input>
@@ -89,7 +88,7 @@
   </ion-item>
   
 
-  <form name="form" class="" (ngSubmit)="valider(form)"  *ngIf="showInputBar4" >
+  <form name="form4" (ngSubmit)="valider(form)"  *ngIf="showInputBar4" >
     <ion-item>
       <ion-label floating>Information à ajouter</ion-label>
       <ion-input name="info4" type="text" [(ngModel)]="form.information"></ion-input>

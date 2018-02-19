@@ -19,6 +19,18 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Data } from '../providers/data/data';
 import { IonicStorageModule } from '@ionic/storage';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireModule } from 'angularfire2';
+import { FirebaseProvider } from '../providers/firebase/firebase';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDFeSiS6exL_T82s8HdZsfgSTdOjr-ZaVg",
+    authDomain: "study-41937.firebaseapp.com",
+    databaseURL: "https://study-41937.firebaseio.com",
+    projectId: "study-41937",
+    storageBucket: "study-41937.appspot.com",
+    messagingSenderId: "371326923844"
+};
 
 @NgModule({
   declarations: [
@@ -36,6 +48,8 @@ import { IonicStorageModule } from '@ionic/storage';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot(),
+    AngularFireDatabaseModule,
+    AngularFireModule.initializeApp(firebaseConfig),
     HttpClientModule,
     HttpModule
   ],
@@ -55,7 +69,8 @@ import { IonicStorageModule } from '@ionic/storage';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    Data
+    Data,
+    FirebaseProvider
   ]
 })
 export class AppModule {}
