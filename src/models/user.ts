@@ -1,11 +1,12 @@
 export interface User {
-    id_user: number;
-    id_ecole: number;
+    ecole: string;
     nom: string;
     prenom: string;
-    adresse: string;
+    ville: string;
     sex: string;
     telephone: string;
+    purpose: string;
+    contact: string;
     photo: string;
     notes_donnees: Array<Number>;
     notes_recues: Array<Number>;

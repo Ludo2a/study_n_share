@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { ConnectPage } from '../connect/connect';
+import { RegisterPage } from '../register/register';
 
 import { FirebaseProvider } from '../../providers/firebase/firebase';
 import { AngularFireDatabase, FirebaseObjectObservable } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Data } from '../../providers/data/data';
 import { User } from '../../models/user';
+
 
 
 /**
@@ -58,9 +60,8 @@ export class ProfilPage {
 
   }
 
-  clickedBrushIcon1(event: Event) {
-    this.showInputBar1 = !this.showInputBar1;
-    this.form.champs = 1;
+  clickedBrushIcon(event: Event) {
+    this.navCtrl.setRoot(RegisterPage);
   }
   clickedBrushIcon2(event: Event) {
     this.showInputBar2 = !this.showInputBar2;
