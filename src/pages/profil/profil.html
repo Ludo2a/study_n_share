@@ -8,12 +8,18 @@
 
   <ion-navbar>
     <ion-title>Profil</ion-title>
+    <button (click)="goToConnect()">Connect</button>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content>
+  <p>nom: {{(profileData | async)?.nom}}</p>
+  <p>prenom: {{(profileData | async)?.prenom}}</p>
+
+
+
   <ion-item>
     <ion-item class="bg" style="background-image: url('http://static3.uk.businessinsider.com/image/589a1765dd0895cb6e8b49f8-1200/.jpg')"></ion-item>
     <ion-avatar ion-row class="avatar">
@@ -30,13 +36,13 @@
         </button>
       </ion-col>
     </ion-row>
-      
+
   </ion-item>
   <div text-center>
     <button *ngFor="let hashtag of user.user_hashtag" ion-button round outline>{{hashtag}}</button>
   </div>
 
- 
+
 <form name="form1" (ngSubmit)="valider(form)" *ngIf="showInputBar1" >
     <ion-item>
       <ion-label floating>Information à ajouter</ion-label>
@@ -52,7 +58,7 @@
       <ion-icon name="brush"></ion-icon>
     </button>
   </ion-item>
-  
+
 
   <form name="form2" (ngSubmit)="valider(form)" *ngIf="showInputBar2" >
       <ion-item>
@@ -69,7 +75,7 @@
       <ion-icon name="brush"></ion-icon>
     </button>
   </ion-item>
-  
+
 
   <form name="form3" (ngSubmit)="valider(form)" *ngIf="showInputBar3" >
       <ion-item>
@@ -86,7 +92,7 @@
       <ion-icon name="brush"></ion-icon>
     </button>
   </ion-item>
-  
+
 
   <form name="form4" (ngSubmit)="valider(form)"  *ngIf="showInputBar4" >
     <ion-item>
@@ -103,7 +109,7 @@
       <ion-icon name="brush"></ion-icon>
     </button>
   </ion-item>
-  
-  
+
+
 
 </ion-content>

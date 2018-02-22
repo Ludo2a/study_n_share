@@ -19,9 +19,12 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Data } from '../providers/data/data';
 import { IonicStorageModule } from '@ionic/storage';
+
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireModule } from 'angularfire2';
 import { FirebaseProvider } from '../providers/firebase/firebase';
+import { AngularFireAuthModule } from 'angularfire2/auth'
+import { RegisterPage } from '../pages/register/register';
 
 const firebaseConfig = {
   apiKey: "AIzaSyDFeSiS6exL_T82s8HdZsfgSTdOjr-ZaVg",
@@ -42,7 +45,8 @@ const firebaseConfig = {
     ProfilPage,
     AddPage,
     ConnectPage,
-    DetailsPage
+    DetailsPage,
+    RegisterPage
   ],
   imports: [
     BrowserModule,
@@ -50,6 +54,7 @@ const firebaseConfig = {
     IonicStorageModule.forRoot(),
     AngularFireDatabaseModule,
     AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireAuthModule,
     HttpClientModule,
     HttpModule
   ],
@@ -63,7 +68,8 @@ const firebaseConfig = {
     ProfilPage,
     AddPage,
     ConnectPage,
-    DetailsPage
+    DetailsPage,
+    RegisterPage
   ],
   providers: [
     StatusBar,
