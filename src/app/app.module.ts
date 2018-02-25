@@ -13,6 +13,8 @@ import { ProfilPage } from '../pages/profil/profil';
 import { AddPage } from '../pages/add/add';
 import { ConnectPage } from '../pages/connect/connect';
 import { DetailsPage } from '../pages/details/details';
+import { RegisterPage } from '../pages/register/register';
+import { EditProfilePage } from '../pages/edit-profile/edit-profile';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -24,7 +26,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireModule } from 'angularfire2';
 import { FirebaseProvider } from '../providers/firebase/firebase';
 import { AngularFireAuthModule } from 'angularfire2/auth'
-import { RegisterPage } from '../pages/register/register';
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyDFeSiS6exL_T82s8HdZsfgSTdOjr-ZaVg",
@@ -46,7 +48,8 @@ const firebaseConfig = {
     AddPage,
     ConnectPage,
     DetailsPage,
-    RegisterPage
+    RegisterPage,
+    EditProfilePage
   ],
   imports: [
     BrowserModule,
@@ -69,7 +72,8 @@ const firebaseConfig = {
     AddPage,
     ConnectPage,
     DetailsPage,
-    RegisterPage
+    RegisterPage,
+    EditProfilePage
   ],
   providers: [
     StatusBar,

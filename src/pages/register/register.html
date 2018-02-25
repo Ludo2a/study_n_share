@@ -16,34 +16,19 @@
 <ion-content padding>
 
   <ion-item>
-    <ion-label floating>Nom</ion-label>
-    <ion-input [(ngModel)]="user.nom"></ion-input>
-  </ion-item>
-  <ion-item>
-      <ion-label floating>Prénom</ion-label>
-      <ion-input [(ngModel)]="user.prenom"></ion-input>
+      <ion-label floating>Email Address</ion-label>
+      <ion-input type="text" [(ngModel)]="user.email"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label floating>Ecole</ion-label>
-      <ion-input [(ngModel)]="user.ecole"></ion-input>
+      <ion-label floating>Password</ion-label>
+      <ion-input type="password" [(ngModel)]="user.password"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label floating>Ville</ion-label>
-      <ion-input [(ngModel)]="user.ville"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label floating>Téléphone</ion-label>
-      <ion-input [(ngModel)]="user.telephone"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label floating>Je suis là pour...</ion-label>
-      <ion-input [(ngModel)]="user.purpose"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label floating>Pour me contacter...</ion-label>
-      <ion-input [(ngModel)]="user.contact"></ion-input>
-    </ion-item>
+        <ion-label floating>Password x2</ion-label>
+        <ion-input type="password" [(ngModel)]="user.password"></ion-input>
+      </ion-item>
 
-  <button ion-button clear block (click)="creatProfile()">Créer proflile</button>
+
+  <button ion-button clear block (click)="register(user)">Créer proflile</button>
 
 </ion-content>

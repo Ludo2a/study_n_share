@@ -4,6 +4,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database'
 import { User } from "../../models/user";
 import {ProfilPage} from "../profil/profil";
+import {ConnectPage} from "../connect/connect"
 
 // import { ProfilPage } from "../profil/profil"
 
@@ -24,11 +25,19 @@ export class RegisterPage {
   constructor(private afDatabase: AngularFireDatabase, private afAuth: AngularFireAuth, public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  creatProfile() {
-    this.afAuth.authState.take(1).subscribe(auth => {
-      this.afDatabase.object(`user/${auth.uid}`).set(this.user).then(() => this.navCtrl.setRoot(ProfilPage));
-
-    })
+  async register(user: User) {
+    try {
+      const result = await this.afAuth.auth.createUserWithEmailAndPassword(
+        user.email,
+        user.password
+      );
+      if (result) {
+        this.navCtrl.push(ConnectPage);
+      }
+    } catch (e) {
+      console.error(e);
+    }
   }
+
 
 }

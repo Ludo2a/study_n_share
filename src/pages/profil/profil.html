@@ -15,11 +15,6 @@
 
 
 <ion-content>
-  <p></p>
-  <p></p>
-
-
-
   <ion-item>
     <ion-item class="bg" style="background-image: url('http://static3.uk.businessinsider.com/image/589a1765dd0895cb6e8b49f8-1200/.jpg')"></ion-item>
     <ion-avatar ion-row class="avatar">
@@ -31,18 +26,16 @@
         <h2>{{(profileData | async)?.ecole}} - {{(profileData | async)?.ville}}</h2>
       </ion-col>
       <ion-col class="mg">
-        <button outline item-right>
+        <button (click)="clickedBrushIcon($event)" item-right>
           <ion-icon name="brush"></ion-icon>
         </button>
       </ion-col>
     </ion-row>
-
   </ion-item>
+
   <div text-center>
     <button *ngFor="let hashtag of user.user_hashtag" ion-button round outline>{{hashtag}}</button>
   </div>
-
-
 
   <ion-item text-center>
     <p>{{(profileData | async)?.purpose}}</p>
@@ -58,41 +51,5 @@
       <ion-icon name="brush"></ion-icon>
     </button>
   </ion-item>
-
-
-  <form name="form3" (ngSubmit)="valider(form)" *ngIf="showInputBar3" >
-      <ion-item>
-        <ion-label floating>Information à ajouter</ion-label>
-        <ion-input name="info3" type="text" [(ngModel)]="form.information"></ion-input>
-      </ion-item>
-      <div text-center>
-          <button ion-button color="primary" type="submit">Valider</button>
-      </div>
-    </form>
-  <ion-item text-center>
-    <p>{{user.user_contact}}</p>
-    <button (click)="clickedBrushIcon3($event)" item-right>
-      <ion-icon name="brush"></ion-icon>
-    </button>
-  </ion-item>
-
-
-  <form name="form4" (ngSubmit)="valider(form)"  *ngIf="showInputBar4" >
-    <ion-item>
-      <ion-label floating>Information à ajouter</ion-label>
-      <ion-input name="info4" type="text" [(ngModel)]="form.information"></ion-input>
-    </ion-item>
-    <div text-center>
-        <button ion-button color="primary" type="submit">Valider</button>
-    </div>
-  </form>
-  <ion-item text-center>
-    <p>{{user.user_institution}}</p>
-    <button (click)="clickedBrushIcon4($event)" item-right>
-      <ion-icon name="brush"></ion-icon>
-    </button>
-  </ion-item>
-
-
 
 </ion-content>

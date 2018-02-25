@@ -2,12 +2,13 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { ConnectPage } from '../connect/connect';
 import { RegisterPage } from '../register/register';
+import { EditProfilePage } from "../edit-profile/edit-profile"
 
 import { FirebaseProvider } from '../../providers/firebase/firebase';
 import { AngularFireDatabase, FirebaseObjectObservable } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Data } from '../../providers/data/data';
-import { User } from '../../models/user';
+import { Profile } from '../../models/profile';
 
 
 
@@ -24,7 +25,7 @@ import { User } from '../../models/user';
 })
 export class ProfilPage {
 
-  profileData: FirebaseObjectObservable<User>
+  profileData: FirebaseObjectObservable<Profile>
   user;
   form;
   public showInputBar1 = false;
@@ -41,7 +42,7 @@ export class ProfilPage {
       {
         this.user = data.user[0];
       });
-    data.saveUser(this.user);
+   /* data.saveUser(this.user);
     this.form = {
       information: "",
       champs: ""
@@ -49,71 +50,24 @@ export class ProfilPage {
     this.fireBaseProvider.getEventItems().subscribe( data => {
       this.user = data;
     })
+    */
   }
 
   ionViewDidLoad() {
     this.afAuth.authState.take(1).subscribe(data => {
       if(data && data.uid){
-        this.profileData = this.afDatabase.object(`user/${data.uid}`)
+        this.profileData = this.afDatabase.object(`profile/${data.uid}`)
       }
     })
 
   }
 
   clickedBrushIcon(event: Event) {
-    this.navCtrl.setRoot(RegisterPage);
-  }
-  clickedBrushIcon2(event: Event) {
-    this.showInputBar2 = !this.showInputBar2;
-    this.form.champs = 2;
-  }
-  clickedBrushIcon3(event: Event) {
-    this.showInputBar3 = !this.showInputBar3;
-    this.form.champs = 3;
-  }
-  clickedBrushIcon4(event: Event) {
-    this.showInputBar4 = !this.showInputBar4;
-    this.form.champs = 4;
+    this.navCtrl.setRoot(EditProfilePage);
   }
 
-  valider(form) {
-    switch(form.champs) {
-      case 1: {
-        this.user.user_lol = form.information;
-        this.data.saveUser(this.user);
-        form.information = "";
-        this.showInputBar1 = !this.showInputBar1;
-        break;
-      }
-      case 2: {
-        this.user.user_purpose = form.information;
-        this.data.saveUser(this.user);
-        form.information = "";
-        this.showInputBar2 = !this.showInputBar2;
-        break;
-      }
-      case 3: {
-        this.user.user_contact = form.information;
-        this.data.saveUser(this.user);
-        form.information = "";
-        this.showInputBar3 = !this.showInputBar3;
-        break;
-      }
-      case 4: {
-        this.user.user_institution = form.information;
-        this.data.saveUser(this.user);
-        form.information = "";
-        this.showInputBar4 = !this.showInputBar4;
-        break;
-      }
-      default : {
-        break;
-      }
-    }
+  goToConnect() {
+    this.navCtrl.setRoot(ConnectPage);
   }
-
-    goToConnect() {
-      this.navCtrl.setRoot(ConnectPage);
-    }
 
 }

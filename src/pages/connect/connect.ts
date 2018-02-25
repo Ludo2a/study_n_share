@@ -4,6 +4,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { User } from "../../models/user";
 import { ProfilPage } from "../profil/profil"
 import { RegisterPage } from "../register/register"
+import { EditProfilePage } from "../edit-profile/edit-profile"
 
 /**
  * Generated class for the ConnectPage page.
@@ -28,26 +29,16 @@ export class ConnectPage {
     try {
       const result = await this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password);
       if (result) {
-        this.navCtrl.setRoot(ProfilPage);
-      }  
+        this.navCtrl.setRoot(EditProfilePage);
+      }
     }
     catch (e) {
       console.error(e);
     }
   }
- 
-  async register(user: User) {
-    try {
-      const result = await this.afAuth.auth.createUserWithEmailAndPassword(
-        user.email,
-        user.password
-      );
-      if (result) {
-        this.navCtrl.push(RegisterPage);
-      }
-    } catch (e) {
-      console.error(e);
-    }
+
+  async register() {
+    this.navCtrl.push(RegisterPage);
   }
 
 }
