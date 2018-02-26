@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { User } from "../../models/user";
-import { ProfilPage } from "../profil/profil"
 import { RegisterPage } from "../register/register"
 import { EditProfilePage } from "../edit-profile/edit-profile"
 

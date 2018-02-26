@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { AngularFireDatabase } from 'angularfire2/database'
 import { User } from "../../models/user";
-import {ProfilPage} from "../profil/profil";
-import {ConnectPage} from "../connect/connect"
+import {ConnectPage} from "../connect/connect";
 
 // import { ProfilPage } from "../profil/profil"
 
@@ -22,7 +20,7 @@ import {ConnectPage} from "../connect/connect"
 export class RegisterPage {
 
   user = {} as User;
-  constructor(private afDatabase: AngularFireDatabase, private afAuth: AngularFireAuth, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private afAuth: AngularFireAuth, public navCtrl: NavController, public navParams: NavParams) {
   }
 
   async register(user: User) {

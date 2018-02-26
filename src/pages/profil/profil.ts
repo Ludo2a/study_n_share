@@ -5,10 +5,11 @@ import { RegisterPage } from '../register/register';
 import { EditProfilePage } from "../edit-profile/edit-profile"
 
 import { FirebaseProvider } from '../../providers/firebase/firebase';
-import { AngularFireDatabase, FirebaseObjectObservable } from 'angularfire2/database';
+import { AngularFireDatabase, AngularFireObject } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Data } from '../../providers/data/data';
 import { Profile } from '../../models/profile';
+import { Observable } from 'rxjs/Observable';
 
 
 
@@ -25,7 +26,7 @@ import { Profile } from '../../models/profile';
 })
 export class ProfilPage {
 
-  profileData: FirebaseObjectObservable<Profile>
+  profileData: Observable<Profile>;
   user;
   form;
   public showInputBar1 = false;
@@ -56,7 +57,7 @@ export class ProfilPage {
   ionViewDidLoad() {
     this.afAuth.authState.take(1).subscribe(data => {
       if(data && data.uid){
-        this.profileData = this.afDatabase.object(`profile/${data.uid}`)
+        this.profileData = this.afDatabase.object(`profile/${data.uid}`).valueChanges();
       }
     })
 

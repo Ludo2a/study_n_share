@@ -15,6 +15,7 @@ import { ConnectPage } from '../pages/connect/connect';
 import { DetailsPage } from '../pages/details/details';
 import { RegisterPage } from '../pages/register/register';
 import { EditProfilePage } from '../pages/edit-profile/edit-profile';
+import { MarketPage } from '../pages/market/market';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -26,6 +27,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireModule } from 'angularfire2';
 import { FirebaseProvider } from '../providers/firebase/firebase';
 import { AngularFireAuthModule } from 'angularfire2/auth'
+import { ShoppingListProvider } from '../providers/shopping-list/shopping-list';
 
 
 const firebaseConfig = {
@@ -49,7 +51,8 @@ const firebaseConfig = {
     ConnectPage,
     DetailsPage,
     RegisterPage,
-    EditProfilePage
+    EditProfilePage,
+    MarketPage
   ],
   imports: [
     BrowserModule,
@@ -73,14 +76,16 @@ const firebaseConfig = {
     ConnectPage,
     DetailsPage,
     RegisterPage,
-    EditProfilePage
+    EditProfilePage,
+    MarketPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     Data,
-    FirebaseProvider
+    FirebaseProvider,
+    ShoppingListProvider
   ]
 })
 export class AppModule {}

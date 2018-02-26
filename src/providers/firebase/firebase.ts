@@ -15,7 +15,7 @@ export class FirebaseProvider {
   }
 
   getEventItems() {
-    return this.afd.object('/user/0');
+    return this.afd.object('profile');
   }
 
 }

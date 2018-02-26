@@ -5,7 +5,7 @@ export interface Profile {
   ville: string;
   sex: string;
   telephone: string;
-  purpose: string;
+  purpose?: string;
   contact: string;
   photo: string;
   notes_donnees: Array<Number>;
