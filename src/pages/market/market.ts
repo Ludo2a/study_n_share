@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { ShoppingListProvider } from '../../providers/shopping-list/shopping-list';
 import { Observable } from 'rxjs/Observable';
-import { Item } from '../../models/item'
+import { DetailsPage } from '../details/details';
+import { Item } from '../../models/item';
 
 /**
  * Generated class for the MarketPage page.
@@ -33,5 +34,9 @@ export class MarketPage {
         }));
       });
   }
+
+  goToDetail(item) {
+    this.navCtrl.push(DetailsPage, { item: item });
+  };
 
 }

@@ -13,7 +13,7 @@
 </ion-header>
 
 
-<ion-content> 
+<ion-content>
     <div class="photo">
     <img src='https://www.mac4ever.com/images-articles/2844_la-calculette-irl-de-l-iphone-va-etre-reeditee.jpg'>
   </div>
@@ -31,8 +31,8 @@
   <ion-grid>
       <ion-row>
         <ion-col col-8>
-          <h6><b>50€</b><br>
-          Calculette<br>
+          <h6><b>{{item.prix}} €</b><br>
+          {{item.nom}}<br>
           Ma foi de toute beauté</h6>
           <a href="" class="hashtag">#Hashtag</a>
         </ion-col>
@@ -46,10 +46,10 @@
     <button ion-button block outline>Contacter le vendeur</button>
     <button ion-button block>ACHETER</button>
   </div>
-  
+
   <h5>LOCALISATION</h5>
   <div #map id="map"></div>
-  
+
 
 
 

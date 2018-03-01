@@ -19,14 +19,14 @@ import { ProfilPage } from "../profil/profil";
 })
 export class EditProfilePage {
 
-  profile = {} as Profile;
+  profileData = {} as Profile;
 
   constructor(private afAuth: AngularFireAuth, private afDatabase: AngularFireDatabase, public navCtrl: NavController, public navParams: NavParams) {
   }
 
   creatProfile() {
     this.afAuth.authState.take(1).subscribe(auth => {
-      this.afDatabase.object(`profile/${auth.uid}`).set(this.profile).then(() => this.navCtrl.setRoot(ProfilPage));
+      this.afDatabase.object(`profile/${auth.uid}`).set(this.profileData).then(() => this.navCtrl.setRoot(ProfilPage));
     })
   }
 

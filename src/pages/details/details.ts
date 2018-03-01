@@ -1,5 +1,6 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { Item } from '../../models/item';
 
 declare var google;
 /**
@@ -15,29 +16,31 @@ declare var google;
 })
 export class DetailsPage {
   @ViewChild('map') mapElement: ElementRef;
+
   map: any;
+  item: Item;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad DetailsPage');
+    this.item = this.navParams.get('item');
     this.loadMap();
   }
 
- 
+
   loadMap(){
- 
+
     let latLng = new google.maps.LatLng(-34.9290, 138.6010);
- 
     let mapOptions = {
       center: latLng,
       zoom: 15,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     }
- 
+
     this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
- 
+
   }
 
 }

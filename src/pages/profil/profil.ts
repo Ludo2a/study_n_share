@@ -5,7 +5,7 @@ import { RegisterPage } from '../register/register';
 import { EditProfilePage } from "../edit-profile/edit-profile"
 
 import { FirebaseProvider } from '../../providers/firebase/firebase';
-import { AngularFireDatabase, AngularFireObject } from 'angularfire2/database';
+import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Data } from '../../providers/data/data';
 import { Profile } from '../../models/profile';
@@ -64,7 +64,7 @@ export class ProfilPage {
   }
 
   clickedBrushIcon(event: Event) {
-    this.navCtrl.setRoot(EditProfilePage);
+    this.navCtrl.push(EditProfilePage, {profileData: this.profileData});
   }
 
   goToConnect() {
