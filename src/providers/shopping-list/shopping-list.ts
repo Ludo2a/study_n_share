@@ -28,11 +28,15 @@ export class ShoppingListProvider {
     return this.shoppingListRef.push(item);
   }
 
-  removeItem(item: Item) {
-    return this.shoppingListRef.remove(item.key);
+  removeMyItem(key: string) {
+    return this.db.list<Item>('shopping-list').remove(key).catch(error => this.handleError(error));;
   }
 
   getMyAds(uid: string){
     return this.db.list<Item>('shopping-list', ref => ref.orderByChild('owner').equalTo(uid));
+  }
+
+  private handleError(error) {
+    console.log(error);
   }
 }

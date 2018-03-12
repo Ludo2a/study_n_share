@@ -39,8 +39,4 @@ export class MarketPage {
     this.navCtrl.push(DetailsPage, { item: item });
   };
 
-  deleteItem(item: Item) {
-    this.shopping.removeItem(item);
-  }
-
 }

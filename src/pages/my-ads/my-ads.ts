@@ -41,8 +41,11 @@ export class MyAdsPage {
       });
   }
 
-  goToDetail(item) {
+  goToDetail(item: Item) {
     this.navCtrl.push(DetailsPage, { item: item });
   };
 
+  deleteItem(item: Item) {
+    this.shopping.removeMyItem(item.key)
+  }
 }
