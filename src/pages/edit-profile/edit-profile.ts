@@ -36,9 +36,9 @@ export class EditProfilePage {
     });
     if(this.profileDataEdit.nom == null){this.profileDataEdit.nom = "à definir";}
   }
-  creatProfile() {
+  updateProfile() {
     this.afAuth.authState.take(1).subscribe(auth => {
-      this.afDatabase.object(`profile/${auth.uid}`).set(this.profileDataEdit).then(() => this.navCtrl.setRoot(ProfilPage));
+      this.afDatabase.object(`profile/${auth.uid}`).update(this.profileDataEdit).then(() => this.navCtrl.setRoot(ProfilPage));
     });
   }
 

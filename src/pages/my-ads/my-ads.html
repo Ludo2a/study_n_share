@@ -23,7 +23,8 @@
         <div (click)="goToDetail(item)">
           {{item.nom}} - {{item.prix}} €
         </div>
-        <button ion-button (click)='deleteItem(item)'>Delete</button>
+        <button ion-button (click)='goToEditItem(item)'>Modifier</button>
+        <button ion-button (click)='deleteItem(item)'>Suprimer</button>
       </ion-item>
 
     </ion-list>

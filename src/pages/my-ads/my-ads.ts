@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { DetailsPage } from '../details/details';
+import { EditItemPage } from '../edit-item/edit-item';
 
 import { Observable } from 'rxjs/Observable';
 import { Item } from '../../models/item';
@@ -43,6 +44,10 @@ export class MyAdsPage {
 
   goToDetail(item: Item) {
     this.navCtrl.push(DetailsPage, { item: item });
+  };
+
+  goToEditItem(item: Item) {
+    this.navCtrl.push(EditItemPage, { item: item });
   };
 
   deleteItem(item: Item) {

@@ -29,7 +29,11 @@ export class ShoppingListProvider {
   }
 
   removeMyItem(key: string) {
-    return this.db.list<Item>('shopping-list').remove(key).catch(error => this.handleError(error));;
+    return this.db.list<Item>('shopping-list').remove(key).catch(error => this.handleError(error));
+  }
+
+  editMyAd(key: string, item: Item) {
+    return this.db.object<Item>(`shopping-list/${key}`).update(item).catch(error => this.handleError(error));;
   }
 
   getMyAds(uid: string){

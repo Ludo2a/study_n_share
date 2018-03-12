@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { ConnectPage } from '../connect/connect';
-import { RegisterPage } from '../register/register';
 import { EditProfilePage } from "../edit-profile/edit-profile"
-import { MarketPage } from '../market/market';
 import { MyAdsPage } from '../my-ads/my-ads';
 
 import { FirebaseProvider } from '../../providers/firebase/firebase';
