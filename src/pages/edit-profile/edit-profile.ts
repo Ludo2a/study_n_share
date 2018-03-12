@@ -24,18 +24,22 @@ export class EditProfilePage {
   profileData: Observable<Profile>;
 
   constructor(private afAuth: AngularFireAuth, private afDatabase: AngularFireDatabase, public navCtrl: NavController, public navParams: NavParams) {
+
+  }
+
+  ionViewDidLoad() {
     this.afAuth.authState.take(1).subscribe(data => {
       if(data && data.uid){
         this.profileData = this.afDatabase.object(`profile/${data.uid}`).valueChanges();
         this.profileData.subscribe(profileData => this.profileDataEdit = profileData);
       }
     });
+    if(this.profileDataEdit.nom == null){this.profileDataEdit.nom = "à definir";}
   }
-
   creatProfile() {
     this.afAuth.authState.take(1).subscribe(auth => {
       this.afDatabase.object(`profile/${auth.uid}`).set(this.profileDataEdit).then(() => this.navCtrl.setRoot(ProfilPage));
-    })
+    });
   }
 
 

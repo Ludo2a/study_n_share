@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireDatabase } from 'angularfire2/database';
 import { User } from "../../models/user";
-import {ConnectPage} from "../connect/connect";
+import { Profile } from '../../models/profile';
+import { ConnectPage } from "../connect/connect";
 
 // import { ProfilPage } from "../profil/profil"
 
@@ -20,7 +22,9 @@ import {ConnectPage} from "../connect/connect";
 export class RegisterPage {
 
   user = {} as User;
-  constructor(private afAuth: AngularFireAuth, public navCtrl: NavController, public navParams: NavParams) {
+  profileData = {} as Profile;
+
+  constructor(private afAuth: AngularFireAuth, private afDatabase: AngularFireDatabase, public navCtrl: NavController, public navParams: NavParams) {
   }
 
   async register(user: User) {
@@ -29,12 +33,21 @@ export class RegisterPage {
         user.email,
         user.password
       );
+
       if (result) {
+        this.creatProfile();
         this.navCtrl.push(ConnectPage);
       }
     } catch (e) {
       console.error(e);
     }
+  }
+
+  creatProfile() {
+    this.profileData.nom = "à definir";
+    this.afAuth.authState.take(1).subscribe(auth => {
+      this.afDatabase.object(`profile/${auth.uid}`).set(this.profileData);
+    });
   }
 
 

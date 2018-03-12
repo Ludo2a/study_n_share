@@ -10,10 +10,10 @@ export interface Profile {
   photo: string;
   notes_donnees: Array<Number>;
   notes_recues: Array<Number>;
-  date_inscription: Date;
+  date_inscription: string;
   commentaires_recus: Array<String>;
   nombre_ventes: number;
   somme_totale_vente: number;
-  disponibilites_horaire: Array<Date>;
+  disponibilites_horaire: string;
   fonction: string;
 }
