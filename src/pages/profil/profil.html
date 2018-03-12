@@ -54,4 +54,9 @@
     </button>
   </ion-item>
 
+  <div *ngIf="isConnected" text-center>
+    <button ion-button round (click)="goToMyAds()">Mes annonces</button>
+    <button ion-button round (click)="logout()">Logout</button>
+  </div>
+
 </ion-content>

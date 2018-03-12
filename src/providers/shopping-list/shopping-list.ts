@@ -27,4 +27,12 @@ export class ShoppingListProvider {
   addItem(item: Item) {
     return this.shoppingListRef.push(item);
   }
+
+  removeItem(item: Item) {
+    return this.shoppingListRef.remove(item.key);
+  }
+
+  getMyAds(uid: string){
+    return this.db.list<Item>('shopping-list', ref => ref.orderByChild('owner').equalTo(uid));
+  }
 }

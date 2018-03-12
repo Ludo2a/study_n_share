@@ -21,11 +21,10 @@ export class DetailsPage {
   item: Item;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-
+    this.item = navParams.get('item');
   }
 
   ionViewDidLoad() {
-    this.item = this.navParams.get('item');
     this.loadMap();
   }
 

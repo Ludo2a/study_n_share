@@ -1,5 +1,5 @@
 <!--
-  Generated template for the EditprofileDataPage page.
+  Generated template for the EditprofileDataEditPage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>editprofileData</ion-title>
+    <ion-title>editprofileDataEdit</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -18,31 +18,31 @@
 
   <ion-item>
       <ion-label floating>Nom</ion-label>
-      <ion-input [(ngModel)]="profileData.nom"></ion-input>
+      <ion-input [(ngModel)]="profileDataEdit.nom"></ion-input>
     </ion-item>
     <ion-item>
         <ion-label floating>Prénom</ion-label>
-        <ion-input [(ngModel)]="profileData.prenom"></ion-input>
+        <ion-input [(ngModel)]="profileDataEdit.prenom"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label floating>Ecole</ion-label>
-        <ion-input [(ngModel)]="profileData.ecole"></ion-input>
+        <ion-input [(ngModel)]="profileDataEdit.ecole"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label floating>Ville</ion-label>
-        <ion-input [(ngModel)]="profileData.ville"></ion-input>
+        <ion-input [(ngModel)]="profileDataEdit.ville"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label floating>Téléphone</ion-label>
-        <ion-input [(ngModel)]="profileData.telephone"></ion-input>
+        <ion-input [(ngModel)]="profileDataEdit.telephone"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label floating>Je suis là pour...</ion-label>
-        <ion-input [(ngModel)]="profileData.purpose"></ion-input>
+        <ion-input [(ngModel)]="profileDataEdit.purpose"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label floating>Pour me contacter...</ion-label>
-        <ion-input [(ngModel)]="profileData.contact"></ion-input>
+        <ion-input [(ngModel)]="profileDataEdit.contact"></ion-input>
       </ion-item>
 
       <button ion-button clear block (click)="creatProfile()">Valider</button>

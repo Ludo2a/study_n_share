@@ -4,6 +4,7 @@ import { Profile } from '../../models/profile';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { ProfilPage } from "../profil/profil";
+import { Observable } from 'rxjs/Observable';
 
 /**
  * Generated class for the EditProfilePage page.
@@ -19,14 +20,21 @@ import { ProfilPage } from "../profil/profil";
 })
 export class EditProfilePage {
 
-  profileData = {} as Profile;
+  profileDataEdit = {} as Profile;
+  profileData: Observable<Profile>;
 
   constructor(private afAuth: AngularFireAuth, private afDatabase: AngularFireDatabase, public navCtrl: NavController, public navParams: NavParams) {
+    this.afAuth.authState.take(1).subscribe(data => {
+      if(data && data.uid){
+        this.profileData = this.afDatabase.object(`profile/${data.uid}`).valueChanges();
+        this.profileData.subscribe(profileData => this.profileDataEdit = profileData);
+      }
+    });
   }
 
   creatProfile() {
     this.afAuth.authState.take(1).subscribe(auth => {
-      this.afDatabase.object(`profile/${auth.uid}`).set(this.profileData).then(() => this.navCtrl.setRoot(ProfilPage));
+      this.afDatabase.object(`profile/${auth.uid}`).set(this.profileDataEdit).then(() => this.navCtrl.setRoot(ProfilPage));
     })
   }
 

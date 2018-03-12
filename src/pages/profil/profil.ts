@@ -3,6 +3,8 @@ import { NavController, NavParams } from 'ionic-angular';
 import { ConnectPage } from '../connect/connect';
 import { RegisterPage } from '../register/register';
 import { EditProfilePage } from "../edit-profile/edit-profile"
+import { MarketPage } from '../market/market';
+import { MyAdsPage } from '../my-ads/my-ads';
 
 import { FirebaseProvider } from '../../providers/firebase/firebase';
 import { AngularFireDatabase } from 'angularfire2/database';
@@ -27,12 +29,11 @@ import { Observable } from 'rxjs/Observable';
 export class ProfilPage {
 
   profileData: Observable<Profile>;
+  isConnected: boolean = false;
+  profileUid: String;
   user;
   form;
-  public showInputBar1 = false;
-  public showInputBar2 = false;
-  public showInputBar3 = false;
-  public showInputBar4 = false;
+  test;
 
 
   constructor(private afAuth: AngularFireAuth, private afDatabase: AngularFireDatabase, public fireBaseProvider: FirebaseProvider,
@@ -54,21 +55,31 @@ export class ProfilPage {
     */
   }
 
-  ionViewDidLoad() {
+  ionViewWillLoad() {
     this.afAuth.authState.take(1).subscribe(data => {
       if(data && data.uid){
+        this.isConnected = true;
         this.profileData = this.afDatabase.object(`profile/${data.uid}`).valueChanges();
+        this.profileUid = data.uid;
       }
-    })
-
+    });
   }
 
   clickedBrushIcon(event: Event) {
-    this.navCtrl.push(EditProfilePage, {profileData: this.profileData});
+    this.navCtrl.push(EditProfilePage);
   }
 
   goToConnect() {
     this.navCtrl.setRoot(ConnectPage);
+  }
+
+  goToMyAds() {
+    this.navCtrl.setRoot(MyAdsPage, {profileUid: this.profileUid});
+  }
+
+  logout() {
+    this.afAuth.auth.signOut();
+    this.navCtrl.setRoot(ProfilPage);
   }
 
 }
