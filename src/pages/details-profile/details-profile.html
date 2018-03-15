@@ -1,0 +1,46 @@
+<!--
+  Generated template for the DetailsProfilePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>details-profile</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-item>
+      <ion-item class="bg" style="background-image: url('http://static3.uk.businessinsider.com/image/589a1765dd0895cb6e8b49f8-1200/.jpg')"></ion-item>
+      <ion-avatar ion-row class="avatar">
+        <img src='http://static3.uk.businessinsider.com/image/589a1765dd0895cb6e8b49f8-1200/.jpg'>
+      </ion-avatar>
+      <ion-row class="fg">
+        <ion-col text-center>
+          <h1>{{(profileData | async)?.prenom}} {{(profileData | async)?.nom}}</h1>
+          <h2>{{(profileData | async)?.ecole}} - {{(profileData | async)?.ville}}</h2>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+
+    <!--
+    <div text-center>
+      <button *ngFor="let hashtag of user.user_hashtag" ion-button round outline>{{hashtag}}</button>
+    </div>
+    -->
+
+    <ion-item text-center>
+      <p>{{(profileData | async)?.purpose}}</p>
+    </ion-item>
+
+
+    <ion-item  text-center>
+      <p>{{(profileData | async)?.contact}}</p>
+    </ion-item>
+
+</ion-content>

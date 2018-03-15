@@ -17,12 +17,42 @@
 
   <ion-item>
       <ion-label>Nom </ion-label>
-      <ion-input [(ngModel)]="item.nom" ></ion-input>
+      <ion-input [(ngModel)]="item.nom" placeholder="Calculatrice"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Prix </ion-label>
-      <ion-input [(ngModel)]="item.prix" type="number" ></ion-input>
+      <ion-input [(ngModel)]="item.prix" type="number" placeholder="40 €"></ion-input>
     </ion-item>
+    <ion-item>
+      <ion-label>Prix neuf </ion-label>
+      <ion-input [(ngModel)]="item.prix_neuf" type="number" placeholder="60 €"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Marque </ion-label>
+      <ion-input [(ngModel)]="item.marque" type="string" placeholder="Casio"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Catégorie </ion-label>
+      <ion-input [(ngModel)]="item.categorie" type="string" placeholder="Mathématiques"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Année d'achat </ion-label>
+      <ion-input [(ngModel)]="item.annee_achat" type="number" placeholder="2016" max=2018 min=1900></ion-input>
+    </ion-item>
+    <ion-item text-center>
+      <p>Etat</p>
+      <select [(ngModel)]="item.etat" name="Etat">
+        <option value="Tres bon">Tres bon</option>
+        <option value="Bon">Bon</option>
+        <option value="Moyen">Moyen</option>
+        <option value="Médiocre">Médiocre</option>
+      </select>
+    </ion-item>
+    <ion-item>
+      <input [(ngModel)]="item.negociable" id="etat" type="checkbox">
+      <label for="etat">Le prix est-il négociable ?</label>
+    </ion-item>
+
 
     <button ion-button clear block (click)="updateItem()">Valider</button>
 

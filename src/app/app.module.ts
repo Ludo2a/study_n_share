@@ -17,7 +17,11 @@ import { RegisterPage } from '../pages/register/register';
 import { EditProfilePage } from '../pages/edit-profile/edit-profile';
 import { MarketPage } from '../pages/market/market';
 import { MyAdsPage } from '../pages/my-ads/my-ads';
-import { EditItemPage } from '../pages/edit-item/edit-item'
+import { EditItemPage } from '../pages/edit-item/edit-item';
+import { DetailsProfilePage } from '../pages/details-profile/details-profile';
+import { LoginPage } from '../pages/login/login';
+
+
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Data } from '../providers/data/data';
@@ -54,7 +58,9 @@ const firebaseConfig = {
     EditProfilePage,
     MarketPage,
     MyAdsPage,
-    EditItemPage
+    EditItemPage,
+    DetailsProfilePage,
+    LoginPage
   ],
   imports: [
     BrowserModule,
@@ -81,7 +87,9 @@ const firebaseConfig = {
     EditProfilePage,
     MarketPage,
     MyAdsPage,
-    EditItemPage
+    EditItemPage,
+    DetailsProfilePage,
+    LoginPage
   ],
   providers: [
     StatusBar,

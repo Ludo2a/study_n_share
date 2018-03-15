@@ -1,6 +1,11 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+
+import { DetailsProfilePage } from '../details-profile/details-profile';
+
+import { Profile } from '../../models/profile';
 import { Item } from '../../models/item';
+
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 
@@ -21,19 +26,20 @@ export class DetailsPage {
 
   map: any;
   item: Item;
-  user: Observable<any>;
+  user: Observable<Profile>;
+
 
   constructor(private db: AngularFireDatabase, public navCtrl: NavController, public navParams: NavParams) {
     this.item = navParams.get('item');
-    this.user = this.getUserFromUID(this.item.owner);
+    this.user = this.db.object<Profile>(`profile/${this.item.owner}`).valueChanges();
   }
 
   ionViewDidLoad() {
     this.loadMap();
   }
 
-  getUserFromUID(uid: string){
-    return this.db.object(`profile/${this.item.owner}`).valueChanges();
+  goToDetailProfile() {
+    this.navCtrl.push(DetailsProfilePage, {userUid: this.item.owner});
   }
 
 

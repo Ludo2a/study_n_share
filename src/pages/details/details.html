@@ -14,10 +14,12 @@
 
 
 <ion-content>
+
+
     <div class="photo">
     <img src='https://www.mac4ever.com/images-articles/2844_la-calculette-irl-de-l-iphone-va-etre-reeditee.jpg'>
   </div>
-  <ion-item>
+  <ion-item (click)="goToDetailProfile()">
     <ion-avatar ion-row>
       <img src="http://s.plurielles.fr/mmdia/i/84/4/stephane-bern-4077844aodnr.jpg?v=1">
       <ion-col>
@@ -31,9 +33,9 @@
   <ion-grid>
       <ion-row>
         <ion-col col-8>
-          <h6><b>{{item.prix}} €</b><br>
+          <h6><b>{{item.prix}} €</b> au lieu de {{item.prix_neuf}} €<br>
           {{item.nom}}<br>
-          Ma foi de toute beauté</h6>
+          {{item.etat}}</h6>
           <a href="" class="hashtag">#Hashtag</a>
         </ion-col>
         <ion-col class="like">

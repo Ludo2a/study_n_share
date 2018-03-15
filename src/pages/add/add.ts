@@ -29,8 +29,14 @@ export class AddPage {
   profileData: Observable<Profile>;
   item : Item = {
     nom: "",
+    categorie: "",
+    marque: "",
     prix: undefined,
-    owner: " "
+    prix_neuf: undefined,
+    annee_achat: undefined,
+    etat: undefined,
+    negociable: false,
+    owner: ""
   };
 
   constructor(private afAuth: AngularFireAuth, private afDatabase: AngularFireDatabase, private shopping: ShoppingListProvider, public navCtrl: NavController, public navParams: NavParams) {

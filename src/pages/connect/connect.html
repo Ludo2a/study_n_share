@@ -14,16 +14,8 @@
 
 
 <ion-content padding>
-    <ion-item>
-      <ion-label floating>Email Address</ion-label>
-      <ion-input type="text" [(ngModel)]="user.email"></ion-input>
-    </ion-item>
-  
-    <ion-item>
-      <ion-label floating>Password</ion-label>
-      <ion-input type="password" [(ngModel)]="user.password"></ion-input>
-    </ion-item>
-  
-    <button ion-button (click)="login(user)">Login</button>
-    <button ion-button color="light" (click)="register(user)">Register</button>
+    <button ion-button (click)="goToLogin()">Login</button>
+    <button ion-button color="light" (click)="goToRegister()">Register</button>
+
+    <p>Ici un descriptif de tous les avantage à avoir un compte study'n'share</p>
   </ion-content>

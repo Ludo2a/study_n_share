@@ -6,17 +6,6 @@ import { User } from "../../models/user";
 import { Profile } from '../../models/profile';
 import { ConnectPage } from "../connect/connect";
 
-import * as firebase from 'firebase/app';
-
-// import { ProfilPage } from "../profil/profil"
-
-/**
- * Generated class for the RegisterPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @Component({
   selector: 'page-register',
   templateUrl: 'register.html',

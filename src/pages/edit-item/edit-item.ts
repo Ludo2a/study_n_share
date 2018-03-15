@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-import { MyAdsPage } from '../my-ads/my-ads';
 import { ProfilPage } from "../profil/profil";
 import { Item } from '../../models/item';
 import { ShoppingListProvider } from '../../providers/shopping-list/shopping-list';
