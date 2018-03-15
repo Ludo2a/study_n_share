@@ -6,6 +6,8 @@ import { User } from "../../models/user";
 import { Profile } from '../../models/profile';
 import { ConnectPage } from "../connect/connect";
 
+import * as firebase from 'firebase/app';
+
 // import { ProfilPage } from "../profil/profil"
 
 /**
@@ -42,6 +44,8 @@ export class RegisterPage {
       console.error(e);
     }
   }
+
+
 
   creatProfile() {
     this.profileData.nom = "à definir";

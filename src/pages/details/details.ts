@@ -1,6 +1,8 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { Item } from '../../models/item';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { Observable } from 'rxjs/Observable';
 
 declare var google;
 /**
@@ -19,13 +21,19 @@ export class DetailsPage {
 
   map: any;
   item: Item;
+  user: Observable<any>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private db: AngularFireDatabase, public navCtrl: NavController, public navParams: NavParams) {
     this.item = navParams.get('item');
+    this.user = this.getUserFromUID(this.item.owner);
   }
 
   ionViewDidLoad() {
     this.loadMap();
+  }
+
+  getUserFromUID(uid: string){
+    return this.db.object(`profile/${this.item.owner}`).valueChanges();
   }
 
 

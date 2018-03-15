@@ -30,7 +30,7 @@ export class AddPage {
   item : Item = {
     nom: "",
     prix: undefined,
-    owner: "test"
+    owner: " "
   };
 
   constructor(private afAuth: AngularFireAuth, private afDatabase: AngularFireDatabase, private shopping: ShoppingListProvider, public navCtrl: NavController, public navParams: NavParams) {

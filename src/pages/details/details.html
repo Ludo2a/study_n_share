@@ -21,7 +21,7 @@
     <ion-avatar ion-row>
       <img src="http://s.plurielles.fr/mmdia/i/84/4/stephane-bern-4077844aodnr.jpg?v=1">
       <ion-col>
-          <h2>Stephane Bern</h2>
+          <h2>{{(user | async)?.prenom}} {{(user | async)?.nom}}</h2>
           <div class="rating">
               <ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star-half"></ion-icon><ion-icon name="star-outline"></ion-icon>
           </div>

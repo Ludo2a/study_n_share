@@ -8,55 +8,59 @@
 
   <ion-navbar>
     <ion-title>Profil</ion-title>
-
-    <button (click)="goToConnect()">Connect</button>
-
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content>
-  <ion-item>
-    <ion-item class="bg" style="background-image: url('http://static3.uk.businessinsider.com/image/589a1765dd0895cb6e8b49f8-1200/.jpg')"></ion-item>
-    <ion-avatar ion-row class="avatar">
-      <img src='http://static3.uk.businessinsider.com/image/589a1765dd0895cb6e8b49f8-1200/.jpg'>
-    </ion-avatar>
-    <ion-row class="fg">
-      <ion-col text-center>
-        <h1>{{(profileData | async)?.prenom}} {{(profileData | async)?.nom}}</h1>
-        <h2>{{(profileData | async)?.ecole}} - {{(profileData | async)?.ville}}</h2>
-      </ion-col>
-      <ion-col class="mg">
-        <button (click)="clickedBrushIcon($event)" item-right>
-          <ion-icon name="brush"></ion-icon>
-        </button>
-      </ion-col>
-    </ion-row>
-  </ion-item>
 
-  <div text-center>
-    <button *ngFor="let hashtag of user.user_hashtag" ion-button round outline>{{hashtag}}</button>
+  <div *ngIf="!isConnected" text-center>
+      <button ion-button (click)="goToConnect()">Connect</button>
   </div>
 
-  <ion-item text-center>
-    <p>{{(profileData | async)?.purpose}}</p>
-    <button (click)="clickedBrushIcon($event)" item-right>
-      <ion-icon name="brush"></ion-icon>
-    </button>
-  </ion-item>
+  <div *ngIf="isConnected">
+    <ion-item>
+      <ion-item class="bg" style="background-image: url('http://static3.uk.businessinsider.com/image/589a1765dd0895cb6e8b49f8-1200/.jpg')"></ion-item>
+      <ion-avatar ion-row class="avatar">
+        <img src='http://static3.uk.businessinsider.com/image/589a1765dd0895cb6e8b49f8-1200/.jpg'>
+      </ion-avatar>
+      <ion-row class="fg">
+        <ion-col text-center>
+          <h1>{{(profileData | async)?.prenom}} {{(profileData | async)?.nom}}</h1>
+          <h2>{{(profileData | async)?.ecole}} - {{(profileData | async)?.ville}}</h2>
+        </ion-col>
+        <ion-col class="mg">
+          <button (click)="clickedBrushIcon($event)" item-right>
+            <ion-icon name="brush"></ion-icon>
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+
+    <div text-center>
+      <button *ngFor="let hashtag of user.user_hashtag" ion-button round outline>{{hashtag}}</button>
+    </div>
+
+    <ion-item text-center>
+      <p>{{(profileData | async)?.purpose}}</p>
+      <button (click)="clickedBrushIcon($event)" item-right>
+        <ion-icon name="brush"></ion-icon>
+      </button>
+    </ion-item>
 
 
-  <ion-item  text-center>
-    <p>{{(profileData | async)?.contact}}</p>
-    <button (click)="clickedBrushIcon($event)" item-right>
-      <ion-icon name="brush"></ion-icon>
-    </button>
-  </ion-item>
+    <ion-item  text-center>
+      <p>{{(profileData | async)?.contact}}</p>
+      <button (click)="clickedBrushIcon($event)" item-right>
+        <ion-icon name="brush"></ion-icon>
+      </button>
+    </ion-item>
 
-  <div *ngIf="isConnected" text-center>
-    <button ion-button round (click)="goToMyAds()">Mes annonces</button>
-    <button ion-button round (click)="logout()">Logout</button>
+    <div text-center>
+      <button ion-button round (click)="goToMyAds()">Mes annonces</button>
+      <button ion-button round (click)="logout()">Logout</button>
+    </div>
   </div>
 
 </ion-content>
