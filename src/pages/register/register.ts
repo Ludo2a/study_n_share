@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, IonicPage } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { User } from "../../models/user";
 import { Profile } from '../../models/profile';
-import { ConnectPage } from "../connect/connect";
 
+@IonicPage()
 @Component({
   selector: 'page-register',
   templateUrl: 'register.html',
@@ -27,7 +27,7 @@ export class RegisterPage {
 
       if (result) {
         this.creatProfile();
-        this.navCtrl.push(ConnectPage);
+        this.navCtrl.push('ConnectPage');
       }
     } catch (e) {
       console.error(e);

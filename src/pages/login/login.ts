@@ -4,9 +4,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { User } from "../../models/user";
 
-import { EditProfilePage } from "../edit-profile/edit-profile"
-
-
 @IonicPage()
 @Component({
   selector: 'page-login',
@@ -23,7 +20,7 @@ export class LoginPage {
     try {
       const result = await this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password);
       if (result) {
-        this.navCtrl.setRoot(EditProfilePage);
+        this.navCtrl.setRoot('EditProfilePage');
       }
     }
     catch (e) {

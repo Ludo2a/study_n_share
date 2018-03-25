@@ -1,21 +1,38 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase } from 'angularfire2/database';
-/*
-  Generated class for the FirebaseProvider provider.
 
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
+import { User } from "../../models/user";
+import { Profile } from '../../models/profile';
+import { Observable } from 'rxjs/Observable';
+
+import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireAuth } from 'angularfire2/auth';
+
+
 @Injectable()
 export class FirebaseProvider {
 
-  constructor(public http: HttpClient, public afd: AngularFireDatabase) {
+  profileData: Observable<Profile>;
+  isConnected: boolean = false;
+  profileUid: string;
+
+  constructor( private afAuth: AngularFireAuth, private afDatabase: AngularFireDatabase,) {
     console.log('Hello FirebaseProvider Provider');
+
+    this.afAuth.authState.take(1).subscribe(data => {
+      if(data && data.uid){
+        this.isConnected = true;
+        this.profileData = this.afDatabase.object(`profile/${data.uid}`).valueChanges();
+        this.profileUid = data.uid;
+      }
+    });
   }
 
-  getEventItems() {
-    return this.afd.object('profile');
+  logout() {
+    this.isConnected=false;
+    this.afAuth.auth.signOut();
   }
+
+
 
 }

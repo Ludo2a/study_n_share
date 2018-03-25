@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Profile } from '../../models/profile';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
-import { ProfilPage } from "../profil/profil";
+
 import { Observable } from 'rxjs/Observable';
 
 /**
@@ -38,7 +38,7 @@ export class EditProfilePage {
   }
   updateProfile() {
     this.afAuth.authState.take(1).subscribe(auth => {
-      this.afDatabase.object(`profile/${auth.uid}`).update(this.profileDataEdit).then(() => this.navCtrl.setRoot(ProfilPage));
+      this.afDatabase.object(`profile/${auth.uid}`).update(this.profileDataEdit).then(() => this.navCtrl.setRoot('ProfilePage'));
     });
   }
 

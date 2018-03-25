@@ -5,23 +5,6 @@ import { MyApp } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 
-import { MapPage } from '../pages/map/map';
-import { ContactPage } from '../pages/contact/contact';
-import { HomePage } from '../pages/home/home';
-import { TabsPage } from '../pages/tabs/tabs';
-import { ProfilPage } from '../pages/profil/profil';
-import { AddPage } from '../pages/add/add';
-import { ConnectPage } from '../pages/connect/connect';
-import { DetailsPage } from '../pages/details/details';
-import { RegisterPage } from '../pages/register/register';
-import { EditProfilePage } from '../pages/edit-profile/edit-profile';
-import { MarketPage } from '../pages/market/market';
-import { MyAdsPage } from '../pages/my-ads/my-ads';
-import { EditItemPage } from '../pages/edit-item/edit-item';
-import { DetailsProfilePage } from '../pages/details-profile/details-profile';
-import { LoginPage } from '../pages/login/login';
-
-
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Data } from '../providers/data/data';
@@ -46,21 +29,6 @@ const firebaseConfig = {
 @NgModule({
   declarations: [
     MyApp,
-    MapPage,
-    ContactPage,
-    HomePage,
-    TabsPage,
-    ProfilPage,
-    AddPage,
-    ConnectPage,
-    DetailsPage,
-    RegisterPage,
-    EditProfilePage,
-    MarketPage,
-    MyAdsPage,
-    EditItemPage,
-    DetailsProfilePage,
-    LoginPage
   ],
   imports: [
     BrowserModule,
@@ -75,21 +43,6 @@ const firebaseConfig = {
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    MapPage,
-    ContactPage,
-    HomePage,
-    TabsPage,
-    ProfilPage,
-    AddPage,
-    ConnectPage,
-    DetailsPage,
-    RegisterPage,
-    EditProfilePage,
-    MarketPage,
-    MyAdsPage,
-    EditItemPage,
-    DetailsProfilePage,
-    LoginPage
   ],
   providers: [
     StatusBar,

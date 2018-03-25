@@ -1,19 +1,11 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-import { DetailsPage } from '../details/details';
-import { EditItemPage } from '../edit-item/edit-item';
 
 import { Observable } from 'rxjs/Observable';
 import { Item } from '../../models/item';
+import { FirebaseProvider } from '../../providers/firebase/firebase';
 import { ShoppingListProvider } from '../../providers/shopping-list/shopping-list';
-
-/**
- * Generated class for the MyAdsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -22,17 +14,16 @@ import { ShoppingListProvider } from '../../providers/shopping-list/shopping-lis
 })
 export class MyAdsPage {
 
-  profileUid: string;
   shoppingList$: Observable<Item[]>;
 
-  constructor(private shopping: ShoppingListProvider, public navCtrl: NavController, public navParams: NavParams) {
-    this.profileUid = this.navParams.get('profileUid');
+  constructor(public fire: FirebaseProvider, private shopping: ShoppingListProvider, public navCtrl: NavController, public navParams: NavParams) {
+
   }
 
   ionViewDidLoad() {
-    console.log(this.profileUid);
+    console.log(this.fire.profileUid);
     this.shoppingList$ = this.shopping
-      .getMyAds(this.profileUid)
+      .getMyAds(this.fire.profileUid)
       .snapshotChanges()
       .map(changes => {
         return changes.map(c => ({
@@ -43,11 +34,11 @@ export class MyAdsPage {
   }
 
   goToDetail(item: Item) {
-    this.navCtrl.push(DetailsPage, { item: item });
+    this.navCtrl.push('DetailsPage', { item: item });
   };
 
   goToEditItem(item: Item) {
-    this.navCtrl.push(EditItemPage, { item: item });
+    this.navCtrl.push('EditItemPage', { item: item });
   };
 
   deleteItem(item: Item) {

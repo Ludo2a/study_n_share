@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, IonicPage } from 'ionic-angular';
 import { ShoppingListProvider } from '../../providers/shopping-list/shopping-list';
 import { Observable } from 'rxjs/Observable';
-import { DetailsPage } from '../details/details';
+
 import { Item } from '../../models/item';
 
 /**
@@ -12,6 +12,7 @@ import { Item } from '../../models/item';
  * Ionic pages and navigation.
  */
 
+@IonicPage()
 @Component({
   selector: 'page-market',
   templateUrl: 'market.html',
@@ -36,7 +37,7 @@ export class MarketPage {
   }
 
   goToDetail(item) {
-    this.navCtrl.push(DetailsPage, { item: item });
+    this.navCtrl.push('DetailsPage', { item: item });
   };
 
 }

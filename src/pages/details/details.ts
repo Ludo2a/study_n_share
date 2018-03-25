@@ -1,7 +1,5 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
-
-import { DetailsProfilePage } from '../details-profile/details-profile';
+import { NavController, NavParams, IonicPage } from 'ionic-angular';
 
 import { Profile } from '../../models/profile';
 import { Item } from '../../models/item';
@@ -10,13 +8,8 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 
 declare var google;
-/**
- * Generated class for the DetailsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
+@IonicPage()
 @Component({
   selector: 'page-details',
   templateUrl: 'details.html',
@@ -39,7 +32,7 @@ export class DetailsPage {
   }
 
   goToDetailProfile() {
-    this.navCtrl.push(DetailsProfilePage, {userUid: this.item.owner});
+    this.navCtrl.push('DetailsProfilePage', {userUid: this.item.owner});
   }
 
 
